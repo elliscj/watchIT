@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS watchit_db;
+
+CREATE DATABASE watchit_db;
