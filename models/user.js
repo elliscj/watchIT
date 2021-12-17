@@ -35,10 +35,9 @@ User.init(
     },
     movie_ids: {
       // saved movie titles? with an added url column?
-
       type: DataTypes.INTEGER,
       references: {
-        model: "movies",
+        model: "movie",
         key: "id",
       },
     },
@@ -46,13 +45,12 @@ User.init(
   {
     sequelize,
     timestamps: true,
-    freezeTableName: false,
     underscored: true,
-    modelName: "ratings",
+    modelName: "user",
   }
 );
 
-module.exports = Users;
+module.exports = User;
 
 // hooks: {
 //       beforeCreate: async (newUserData) => {

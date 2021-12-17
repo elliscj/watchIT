@@ -14,11 +14,11 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(routes);
 
 // Set up sessions
-const sess = {
-  secret: "Super secret secret",
-  resave: false,
-  saveUninitialized: false,
-};
+// const sess = {
+//   secret: "Super secret secret",
+//   resave: false,
+//   saveUninitialized: false,
+// };
 
 // app.use(session(sess));
 
@@ -26,6 +26,6 @@ const sess = {
 // app.set("view engine", "handlebars");
 
 // turn on connection to db and server
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));
 });

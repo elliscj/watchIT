@@ -22,7 +22,7 @@ Rating.init(
     movie_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "movies",
+        model: "movie",
         key: "id",
       },
     },
@@ -30,10 +30,9 @@ Rating.init(
   {
     sequelize,
     timestamps: true,
-    freezeTableName: false,
     underscored: true,
-    modelName: "ratings",
+    modelName: "rating",
   }
 );
 
-module.exports = Users;
+module.exports = Rating;
