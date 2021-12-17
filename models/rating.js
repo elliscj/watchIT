@@ -22,7 +22,7 @@ Rating.init(
     movie_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "movie",
+        model: "movies",
         key: "id",
       },
     },
@@ -31,7 +31,7 @@ Rating.init(
     sequelize,
     timestamps: true,
     underscored: true,
-    modelName: "rating",
+    modelName: "ratings",
   }
 );
 
