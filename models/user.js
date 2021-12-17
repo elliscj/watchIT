@@ -1,4 +1,3 @@
-const { truncate } = require("lodash");
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
@@ -37,7 +36,7 @@ User.init(
       // saved movie titles? with an added url column?
       type: DataTypes.INTEGER,
       references: {
-        model: "movie",
+        model: "movies",
         key: "id",
       },
     },
@@ -46,7 +45,7 @@ User.init(
     sequelize,
     timestamps: true,
     underscored: true,
-    modelName: "user",
+    modelName: "users",
   }
 );
 

@@ -30,7 +30,7 @@ Movie.init(
     sequelize,
     timestamps: true,
     underscored: true,
-    modelName: "movie",
+    modelName: "movies",
   }
 );
 
