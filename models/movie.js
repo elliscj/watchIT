@@ -29,10 +29,9 @@ Movie.init(
   {
     sequelize,
     timestamps: true,
-    freezeTableName: false,
     underscored: true,
-    modelName: "movies",
+    modelName: "movie",
   }
 );
 
-module.exports = Users;
+module.exports = Movie;
