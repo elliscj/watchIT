@@ -4,9 +4,9 @@ const sequelize = require("./config/connection");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
 
-const Movie = require("./models/Movie");
-const Rating = require("./models/Rating");
-const User = require("./models/User");
+const Movie = require("./models/movie");
+const Rating = require("./models/rating");
+const User = require("./models/user");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
