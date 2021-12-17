@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // turn on routes
-app.use(routes);
+// app.use(routes);
 
 // Set up sessions
 const sess = {
@@ -20,10 +20,10 @@ const sess = {
   saveUninitialized: false,
 };
 
-app.use(session(sess));
+// app.use(session(sess));
 
-app.engine("handlebars", hbs.engine);
-app.set("view engine", "handlebars");
+// app.engine("handlebars", hbs.engine);
+// app.set("view engine", "handlebars");
 
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {
