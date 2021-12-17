@@ -1,0 +1,27 @@
+.logo {
+  max-width: 10%;
+  max-height: 10%;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Verdana, sans-serif;
+}
+.mySlides {
+  display: none;
+}
+img {
+  vertical-align: middle;
+}
+
+/* Slideshow */
+[data-component="slideshow"] .slide {
+  display: none;
+  text-align: center;
+  height: 100vw;
+}
+
+[data-component="slideshow"] .slide.active {
+  display: block;
+}
