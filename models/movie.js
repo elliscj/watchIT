@@ -3,6 +3,7 @@ const sequelize = require("../config/connection");
 
 class Movie extends Model {}
 
+// trailor is spelled wrong -- *trailer
 Movie.init(
   {
     id: {
@@ -22,13 +23,13 @@ Movie.init(
     release_year: {
       type: DataTypes.INTEGER,
     },
-    trailor_url: {
-      type: DataTypes.STRING,
+    trailer_url: {
+      type: DataTypes.STRING(10000),
     },
   },
   {
     sequelize,
-    timestamps: true,
+    timestamps: false,
     underscored: true,
     modelName: "movies",
   }

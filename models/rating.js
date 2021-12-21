@@ -11,10 +11,10 @@ Rating.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+    // title: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
     rating: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -29,7 +29,7 @@ Rating.init(
   },
   {
     sequelize,
-    timestamps: true,
+    timestamps: false,
     underscored: true,
     modelName: "ratings",
   }

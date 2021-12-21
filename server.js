@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // turn on routes
-// app.use(routes);
+app.use(routes);
 
 // Set up sessions
 // const sess = {

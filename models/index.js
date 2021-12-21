@@ -6,9 +6,9 @@ User.hasMany(Rating, {
   foreignKey: "user_id",
 });
 
-Movie.belongsToMany(User, {
-  foreignKey: "movie_id",
-});
+// Movie.belongsToMany(User, {
+//   foreignKey: "movie_id",
+// });
 
 Movie.hasMany(Rating, {
   foreignKey: "movie_id",
