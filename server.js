@@ -5,8 +5,8 @@ const session = require("express-session");
 const exphbs = require("express-handlebars");
 
 const Movie = require("./models/movie");
-const Rating = require("./models/rating");
 const User = require("./models/user");
+const Rating = require("./models/rating");
 
 const app = express();
 const PORT = process.env.PORT || 3001;

@@ -2,6 +2,19 @@ const router = require("express").Router();
 const { Movie, User, Rating } = require("../../models");
 module.exports = router;
 
+// ~~ /api/users ~~ //
+
+router.get("/", async (req, res) => {
+  try {
+    const userData = await User.findAll({
+      include: [{ model: Rating }],
+    });
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // get all users (qty) (for admin purposes?)
 
 // verify login? get password where Users.email = _____.

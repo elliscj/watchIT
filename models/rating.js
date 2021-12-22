@@ -26,6 +26,13 @@ Rating.init(
         key: "id",
       },
     },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "users",
+        key: "id",
+      },
+    },
   },
   {
     sequelize,
