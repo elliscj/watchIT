@@ -3,7 +3,6 @@ const sequelize = require("../config/connection");
 
 class Movie extends Model {}
 
-// trailor is spelled wrong -- *trailer
 Movie.init(
   {
     id: {
