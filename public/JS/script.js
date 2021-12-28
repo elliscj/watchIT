@@ -1,21 +1,32 @@
-var slideshows = document.querySelectorAll('[data-component="slideshow"]');
-slideshows.forEach(initSlideShow);
+window.onload = function () {
+  $(".slider").slick({
+    autoplay: true,
+    autoplaySpeed: 1500,
+    arrows: true,
+    prevArrow: '<button type="button" class="slick-prev"></button>',
+    nextArrow: '<button type="button" class="slick-next"></button>',
+    centerMode: true,
+    slidesToShow: 6,
+    slidesToScroll: 1,
+  });
 
-function initSlideShow(slideshow) {
-  var slides = document.querySelectorAll(
-    `#${slideshow.id} [role="list"] .slide`
-  );
+  // Initialize library
+  lozad(".lozad", {
+    load(el) {
+      el.src = el.dataset.src;
+    },
+  }).observe();
+};
 
-  var index = 0,
-    time = 2000;
-  slides[index].classList.add("active");
+const express = require("express");
 
-  setInterval(() => {
-    slides[index].classList.remove("active");
+const router = express.Router();
 
-    index++;
-    if (index === slides.length) index = 0;
-
-    slides[index].classList.add("active");
-  }, time);
-}
+router.get("/", async (req, res, next) => {
+  try {
+    res.render("index/landing");
+    next();
+  } catch (error) {
+    next(error);
+  }
+});

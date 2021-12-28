@@ -18,56 +18,39 @@
     />
 
     <link rel="stylesheet" href="../public/CSS/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <!--NavBar-->
-    <header>
-      <div
-        class="
-          d-flex
-          flex-sm-column flex-md-row
-          align-items-center
-          pb-6
-          mb-4
-          border-bottom
-        "
-      >
-        <img
-          class="logo"
-          src="../public/assets/images/logo_watchit.png"
-          alt="WatchiT logo"
-        />
-        <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-          <a class="me-3 py-2 text-dark text-decoration-none" href="#">Home</a>
-          <a class="me-3 py-2 text-dark text-decoration-none" href="#"
-            >My Movies</a
-          >
-          <a class="me-3 py-2 text-dark text-decoration-none" href="#"
-            >Search</a
-          >
-          <a class="py-2 text-dark text-decoration-none" href="#About">About</a>
-        </nav>
+    <!--landing page-->
+    <div class="slideshow"></div>
+    <video autoplay muted loop id="myVideo">
+      <source src="../public/assets/images/movie.mp4" type="video/mp4" />
+    </video>
+    <span class="logo">Watch<strong>-iT</strong></span>
+    <br /><br />
+    <div class="text">
+      <div class="title">
+        <p>See Movie Review's</p>
       </div>
-    </header>
-
-    <!--slider-->
-
-    <div id="slideshow-example" data-component="slideshow">
-      <div role="list">
-        <div class="slide">
-          <img src="../public/assets/images/image_1.jpg" alt="" />
-        </div>
-        <div class="slide">
-          <img src="../public/assets/images/image_2.jpg" alt="" />
-        </div>
-        <div class="slide">
-          <img src="../public/assets/images/image_3.jpg" alt="" />
-        </div>
-        <div class="slide">
-          <img src="../public/assets/images/image_4.jpg" alt="" />
-        </div>
+      <div class="underscore">
+        <p>
+          <span>Most Popular Movies</span><span>Upcoming Movies</span
+          ><span>Top Rated Movies</span>
+        </p>
       </div>
     </div>
+    <a href="./nowplaying.html" class="btn-lg btn-red">Get Started</a>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></script>
     <script type="text/javascript" src="../public/JS/script.js"></script>
