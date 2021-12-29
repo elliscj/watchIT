@@ -6,10 +6,7 @@ const router = require("express").Router();
 
 router.get("/", async (req, res) => {
   try {
-    res.render("index", {
-      galleries,
-      loggedIn: req.session.loggedIn,
-    });
+    res.render("index");
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
