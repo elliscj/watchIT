@@ -3,6 +3,7 @@ const routes = require("./controllers");
 const sequelize = require("./config/connection");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const Movie = require("./models/movie");
 const User = require("./models/user");
@@ -18,11 +19,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(routes);
 
 // Set up sessions
-// const sess = {
-//   secret: "Super secret secret",
-//   resave: false,
-//   saveUninitialized: false,
-// };
+const sess = {
+  secret: "Super secret secret",
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
+};
 
 // app.use(session(sess));
 
