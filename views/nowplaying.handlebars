@@ -1,4 +1,6 @@
 
+
+
   </head>
 
   <body>
@@ -46,6 +48,38 @@
             <i class="far fa-calendar-alt"></i>Upcoming
           </a>
         </li>
+        <li class="dropdown">
+              <a
+                href="#"
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >Genres<span class="caret"></span
+              ></a>
+              <ul class="dropdown-menu" >
+                <li><a href="#" class="action" style="color: red;" id="action">Action</a></li>
+                <li>
+                  <a href="#" class="adventure" style="color: red;"  id="adventure">Adventure</a>
+                </li>
+                <li>
+                  <a href="#" class="animation" style="color: red;" id="animation">Animation</a>
+                </li>
+                <li><a href="#" class="comedy" style="color: red;"  id="comedy">Comedy</a></li>
+                <li><a href="#" class="crime" style="color: red;"  id="crime">Crime</a></li>
+                <li><a href="#" class="drama" style="color: red;"  id="drama">Drama</a></li>
+                <li><a href="#" class="family" style="color: red;"  id="family">Family</a></li>
+                <li><a href="#" class="fantasy" style="color: red;"  id="fantasy">Fantasy</a></li>
+                <li><a href="#" class="history" style="color: red;"  id="history">History</a></li>
+                <li><a href="#" class="music" style="color: red;"  id="romance">Romance</a></li>
+                <li>
+                  <a href="#" class="scifi" style="color: red;"  id="scifi">Science Fiction</a>
+                </li>
+                <li><a href="#" class="thriller" style="color:red;"  id="thriller">Thriller</a></li>
+              </ul>
+            </li>
+         <li>
          <li>
           <a href="">
          <i class="fas fa-camera-movie"></i>Your Movie
@@ -59,9 +93,18 @@
       </ul>
       
     </div>
-    <form id="form" style="display: flex; justify-content: flex-end; padding: 1rem;">
-        <input type="text" id="search" placeholder="Search" class="search" />
-      </form>
+   <ul class="nav navbar-nav navbar-right">
+            <form class="navbar-form navbar-right searchForm">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search movies"
+                />
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+          </ul>
     <!-- /.navbar-collapse -->
   </div>
   
@@ -69,5 +112,16 @@
 </nav>
 
  <div class="main" id="content"></div>
+ <div class="container">
+      <div class="row">
+        <div class="genreLabel"><h1 id="movieGenreLabel"></h1></div>
+        <!-- I need the h1 to change accordingly depending on what was clicked. -->
+        <div id="movie-grid">
+          <!-- Jquery get us the movie posters! Need a place to put the poster images -->
+        </div>
+      </div>
+    </div>
 
-
+ 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script  type="text/javascript" src="/JS/nowplaying.js"></script>
