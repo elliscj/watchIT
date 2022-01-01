@@ -1,6 +1,26 @@
 const User = require("./User");
+const Favorite = require("./favorite");
 const Rating = require("./Rating");
-const Movie = require("./Movie");
+
+Favorite.belongsTo(User, {
+  foreignKey: "user_id",
+});
+
+User.hasMany(Favorite, {
+  foreignKey: "user_id",
+});
+
+Rating.belongsTo(Favorite, {
+  foreignKey: "favorite_id",
+});
+
+Favorite.hasMany(Rating, {
+  foreignKey: "favorite_id",
+});
+
+Rating.belongsTo(User, {
+  foreignKey: "user_id",
+});
 
 User.hasMany(Rating, {
   foreignKey: "user_id",
@@ -10,23 +30,11 @@ User.hasMany(Rating, {
 //   foreignKey: "movie_id",
 // });
 
-Movie.hasMany(Rating, {
-  foreignKey: "movie_id",
-});
-
-Rating.belongsTo(Movie, {
-  foreignKey: "movie_id",
-});
-
-Rating.belongsTo(User, {
-  foreignKey: "user_id",
-});
-
 // User.hasMany(Movie, {
 //     foreignKey: "movie_ids"
 // })
 
-module.exports = { User, Rating, Movie };
+module.exports = { User, Rating, Favorite };
 
 // hooks: {
 //       beforeCreate: async (newUserData) => {

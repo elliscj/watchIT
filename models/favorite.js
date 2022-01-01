@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Movie extends Model {}
+class Favorite extends Model {}
 
-Movie.init(
+Favorite.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -15,23 +15,30 @@ Movie.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    run_time: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    release_year: {
-      type: DataTypes.INTEGER,
-    },
+    // run_time: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
+    // release_year: {
+    //   type: DataTypes.INTEGER,
+    // },
     trailer_url: {
       type: DataTypes.STRING(10000),
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "users",
+        key: "id",
+      },
     },
   },
   {
     sequelize,
     timestamps: false,
     underscored: true,
-    modelName: "movies",
+    modelName: "favorites",
   }
 );
 
-module.exports = Movie;
+module.exports = Favorite;

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Movie, User, Rating } = require("../../models");
+const { Favorite, User, Rating } = require("../../models");
 module.exports = router;
 
 // ~~ /api/ratings ~~ //
