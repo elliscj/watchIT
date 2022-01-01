@@ -18,17 +18,15 @@ User.init(
     },
     email: {
       type: DataTypes.STRING,
+      unique: true,
       validate: {
         isEmail: true,
-        isUnique: true,
       },
     },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        isUnique: true,
-      },
+      unique: true,
     },
     password: {
       type: DataTypes.STRING,
@@ -37,14 +35,14 @@ User.init(
         len: [6],
       },
     },
-    movie_ids: {
-      // saved movie titles? with an added url column?
-      type: DataTypes.INTEGER,
-      references: {
-        model: "movies",
-        key: "id",
-      },
-    },
+    // movie_ids: {
+    //   // saved movie titles? with an added url column?
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: "movies",
+    //     key: "id",
+    //   },
+    // },
   },
   {
     hooks: {

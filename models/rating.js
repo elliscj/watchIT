@@ -19,10 +19,10 @@ Rating.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    movie_id: {
+    favorite_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "movies",
+        model: "favorites",
         key: "id",
       },
     },

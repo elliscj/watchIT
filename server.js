@@ -41,7 +41,7 @@ sequelize.sync({ force: true }).then(() => {
 // const exphbs = require("express-handlebars");
 // const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
-// const Movie = require("./models/movie");
+// const Favorite = require("./models/favorite");
 // const User = require("./models/user");
 // const Rating = require("./models/rating");
 
