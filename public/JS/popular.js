@@ -90,8 +90,6 @@ $(document).ready(function () {
             '<div class="rating">Rating: ' + voteAverage + "/10</div><br>";
           nowPlayingHTML +=
             '<div class="col-sm-5 btn btn-primary">Add to Favorite' + "</div>";
-          nowPlayingHTML +=
-            '<div class="col-sm-4 btn btn-primary">Git Ticket' + "</div>";
 
           nowPlayingHTML += "</div>"; //close movieDetails
           nowPlayingHTML += "</div>"; //close modal-content
@@ -171,8 +169,6 @@ $(document).ready(function () {
             '<div class="rating">Rating: ' + voteAverage + "/10</div><br>";
           genreHTML +=
             '<div class="col-sm-5 btn btn-primary">Add to Favorite' + "</div>";
-          genreHTML +=
-            '<div class="col-sm-4 btn btn-primary">Git Ticket' + "</div>";
 
           genreHTML += "</div>"; //close movieDetails
           genreHTML += "</div>"; //close modal-content
@@ -358,8 +354,6 @@ $(document).ready(function () {
             '<div class="rating">Rating: ' + voteAverage + "/10</div><br>";
           searchResultsHTML +=
             '<div class="col-sm-5 btn btn-primary">Add to Favorite' + "</div>";
-          searchResultsHTML +=
-            '<div class="col-sm-4 btn btn-primary">Git Ticket' + "</div>";
 
           searchResultsHTML += "</div>"; //close movieDetails
           searchResultsHTML += "</div>"; //close modal-dialog

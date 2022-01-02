@@ -1,187 +1,153 @@
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  
+  
+ <body>
+    <div class="container"></div>
 
-    <link rel="stylesheet" href="/CSS/login-form.css">
+<div></div>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button
+        type="button"
+        class="navbar-toggle"
+        data-toggle="collapse"
+        data-target="#bs-example-navbar-collapse-1"
+      >
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">WatchiT</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="/nowplaying">
+            <i class="far fa-play-circle"></i>Currently Playing
+          </a>
+        </li>
+        <li>
+          <a href="/popular">
+            <i class="far fa-star"></i>Popular
+          </a>
+        </li>
+        <li>
+          <a href="/toprated">
+            <i class="far fa-arrow-alt-circle-up"></i>Top Rated
+          </a>
+        </li>
+        <li>
+          <a href="/upcoming">
+            <i class="far fa-calendar-alt"></i>Upcoming
+          </a>
+        </li>
+        <li class="dropdown">
+              <a
+                href="#"
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >Genres<span class="caret"></span
+              ></a>
+              <ul class="dropdown-menu" >
+                <li><a href="#" class="action" style="color: red;" id="action">Action</a></li>
+                <li>
+                  <a href="#" class="adventure" style="color: red;"  id="adventure">Adventure</a>
+                </li>
+                <li>
+                  <a href="#" class="animation" style="color: red;" id="animation">Animation</a>
+                </li>
+                <li><a href="#" class="comedy" style="color: red;"  id="comedy">Comedy</a></li>
+                <li><a href="#" class="crime" style="color: red;"  id="crime">Crime</a></li>
+                <li><a href="#" class="drama" style="color: red;"  id="drama">Drama</a></li>
+                <li><a href="#" class="family" style="color: red;"  id="family">Family</a></li>
+                <li><a href="#" class="fantasy" style="color: red;"  id="fantasy">Fantasy</a></li>
+                <li><a href="#" class="history" style="color: red;"  id="history">History</a></li>
+                <li><a href="#" class="music" style="color: red;"  id="romance">Romance</a></li>
+                <li>
+                  <a href="#" class="scifi" style="color: red;"  id="scifi">Science Fiction</a>
+                </li>
+                <li><a href="#" class="thriller" style="color:red;"  id="thriller">Thriller</a></li>
+              </ul>
+            </li>
+         <li>
+         <li>
+          <a href="/my-movies">
+         <i class="fas fa-camera-movie"></i>My Movies
+          </a>
+        </li>
+        <li class="active">
+          <a href="/login-form">
+        <i class="fa-regular fa-arrow-right-to-bracket"></i>LOGIN/SIGN UP
+          </a>
+        </li>
+      </ul>
+      
+    </div>
+   <ul class="nav navbar-nav navbar-right">
+            <form class="navbar-form navbar-right searchForm">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search movies"
+                />
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+          </ul>
+    <!-- /.navbar-collapse -->
+  </div>
+  
+  
+  <!-- /.container-fluid -->
+</nav>
+
+<div style="display: flex; justify-content:center; border: 10px;" >
+  <div class="login-card">
+    <h2 class="page-title">Login</h2>
+    <form class="form login-form">
+      <div class="form-group">
+        <label for="email-login">Email:</label>
+        <input class="form-input" type="text" id="email-login" />
+      </div>
+      <div class="form-group">
+        <label for="password-login">Password:</label>
+        <input class="form-input" type="password" id="password-login" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">login</button>
+      </div>
+    </form>
+  </div>
+  <div class="login-card">
+    <h2 class="page-title">Signup</h2>
+    <form class="form signup-form">
+      <div class="form-group">
+        <label for="username-signup">Username:</label>
+        <input class="form-input" type="text" id="username-signup" />
+      </div>
+      <div class="form-group">
+        <label for="email-signup">Email:</label>
+        <input class="form-input" type="text" id="email-signup" />
+      </div>
+      <div class="form-group">
+        <label for="password-signup">Password:</label>
+        <input class="form-input" type="password" id="password-signup" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">signup</button>
+      </div>
+    </form>
+  </div>
+</div>
         
-    </head>
-    <body style="background-image:url('/assets/images/movie\ BG.jpg');background-size: cover;">
-        <div class="container">
-            <div class="container form bg-white pt-5 mt-4 mb-3">
-                                                            <!--change after click on sign up-->
-                <p class="text-center login-heading hide-me">login</p>
-                <div class="container hide-me">
-                    <div class="row">
-                        <div class="col mt-4 pl-5 pr-5">
-                            <p class="username">username</p>
-                            <div class="row mt-4">
-                                <div class="col-2 text-center pt-1 pr-0">
-                                    <i class="fa fa-user-o" aria-hidden="true" id="user"></i>
-                                </div>
-                                <div class="col-10 pl-0">
-                                    <input type="text" placeholder="Type your username" class='input-1'>
-                                </div>
-                            </div>
-                            <hr class="hr-1">
-                            <div class="hide"></div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col mt-4 pl-5 pr-5">
-                            <p class="username">Password</p>
-                            <div class="row mt-4">
-                                <div class="col-2 text-center pt-1 pr-0">
-                                    <i class="fa fa-lock" aria-hidden="true" id="lock"></i>
-                                </div>
-                                <div class="col-10 pl-0">
-                                    <input type="password" placeholder="Type your password" class="input-2">
-                                </div>
-                            </div>
-                            <hr class="hr-2">
-                            <div class="hide-1"></div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col text-right pr-5">
-                            <a href="#"><span class="forget-password">Forget password?</span></a>
-                        </div>
-                    </div>
-                    <div class="row mt-4">
-                        <div class="col pl-5 pr-5">
-                            <a href="/nowplaying"><span class="btn btn-block text-white login-button">login</span></a>
-                        </div>
-                    </div>
-                    <div class="row mt-5">
-                        <div class="col text-center">
-                            <span style="text-transform: capitalize;font-family: Arial, Helvetica, sans-serif;font-size:15px;font-weight:600;color:rgb(148, 141, 141)">or sign up using</span>
-                        </div>
-                    </div>
-                    <div class="row mt-5">
-                        <div class='col text-center'>
-                            <span class="facebook-icon"><i class="fa fa-facebook" aria-hidden="true"></i></span>
-                            <span class="twitter-icon"><i class="fa fa-twitter" aria-hidden="true"></i></span>
-                            <span class="google-icon"><i class="fa fa-google" aria-hidden="true"></i></span>
-                        </div>
-                    </div>
-                    <div class="row mt-5">
-                        <div class="col text-center">
-                            <span style="text-transform: capitalize;font-family: Arial, Helvetica, sans-serif;font-size:15px;font-weight:600;color:rgb(148, 141, 141)">or sign up using</span>
-                        </div>
-                        <div class="col-12 text-center pt-3">
-                            <a href="#"><span class="sign-up">sign up</span></a>
-                        </div>
-                    </div>
-                </div>
-                                                                        <!--change it-->
-                <p class="text-center login-heading show-me">sign up</p>
-                <div class="row show-me">
-                    <div class="col mt-4 pl-5 pr-5">
-                        <p class="username">First name</p>
-                        <div class="row mt-4">
-                            <div class="col-2 text-center pt-1 pr-0">
-                                <i class="fa fa-user-o" aria-hidden="true" id="user"></i>
-                            </div>
-                            <div class="col-10 pl-0">
-                                <input type="text" placeholder="Type your username" class='first-name'>
-                            </div>
-                        </div>
-                        <hr class="hr-1">
-                        <div class="first-name-hide"></div>
-                    </div>
-                </div>
-                <div class="row show-me">
-                    <div class="col mt-4 pl-5 pr-5">
-                        <p class="username">Last name</p>
-                        <div class="row mt-4">
-                            <div class="col-2 text-center pt-1 pr-0">
-                                <i class="fa fa-user-o" aria-hidden="true" id="user"></i>
-                            </div>
-                            <div class="col-10 pl-0">
-                                <input type="text" placeholder="Type your username" class='last-name'>
-                            </div>
-                        </div>
-                        <hr class="hr-1">
-                        <div class="last-name-hide"></div>
-                    </div>
-                </div>
-                <div class="row show-me">
-                    <div class="col mt-4 pl-5 pr-5">
-                        <p class="username">Email-id</p>
-                        <div class="row mt-4">
-                            <div class="col-2 text-center pt-1 pr-0">
-                                <i class="fa fa-envelope-o" aria-hidden="true" id="user"></i>
-                            </div>
-                            <div class="col-10 pl-0">
-                                <input type="text" placeholder="Type your username" class='email'>
-                            </div>
-                        </div>
-                        <hr class="hr-1">
-                        <div class="email-hide"></div>
-                    </div>
-                </div>
-                <div class="row show-me">
-                    <div class="col mt-4 pl-5 pr-5">
-                        <p class="username">Password</p>
-                        <div class="row mt-4">
-                            <div class="col-2 text-center pt-1 pr-0">
-                                <i class="fa fa-lock" aria-hidden="true" id="lock"></i>
-                            </div>
-                            <div class="col-10 pl-0">
-                                <input type="password" placeholder="Type your password" class="password-signup">
-                            </div>
-                        </div>
-                        <hr class="hr-2">
-                        <div class="password-signup-hide"></div>
-                    </div>
-                </div>
-                <div class="row show-me">
-                    <div class="col mt-4 pl-5 pr-5">
-                        <p class="username">Confirm-password</p>
-                        <div class="row mt-4">
-                            <div class="col-2 text-center pt-1 pr-0">
-                                <i class="fa fa-lock" aria-hidden="true" id="lock"></i>
-                            </div>
-                            <div class="col-10 pl-0">
-                                <input type="password" placeholder="Type your password" class="confirm-password-signup">
-                            </div>
-                        </div>
-                        <hr class="hr-2">
-                        <div class="confirm-password-signup-hide"></div>
-                    </div>
-                </div>
-                <div class="row show-me">
-                    <div class="col pl-5">
-                        <a href="#"><span class="forget-password">I accept the <span style="text-transform:capitalize;color:blue">terms of use</span>&
-                            <span style="text-transform:capitalize;color:blue">privacy policy</span> </a>
-                    </div>
-                </div>
-                <div class="row mt-4 show-me">
-                    <div class="col pl-5 pr-5">
-                        <a href="/nowplaying"><span class="btn btn-block text-white signup-button">sign up</span></a>
-                    </div>
-                </div>
-                <div class="row mt-5 show-me">
-                    <div class="col text-center">
-                        <span style="text-transform: capitalize;font-family: Arial, Helvetica, sans-serif;font-size:15px;font-weight:600;color:rgb(148, 141, 141)">or sign up using</span>
-                    </div>
-                </div>
-                <div class="row mt-5 show-me">
-                    <div class='col text-center'>
-                        <span class="facebook-icon"><i class="fa fa-facebook" aria-hidden="true"></i></span>
-                        <span class="twitter-icon"><i class="fa fa-twitter" aria-hidden="true"></i></span>
-                        <span class="google-icon"><i class="fa fa-google" aria-hidden="true"></i></span>
-                    </div>
-                </div>
-                <div class="row mt-5 show-me">
-                    <div class="col text-center">
-                        <span style="text-transform: capitalize;font-family: Arial, Helvetica, sans-serif;font-size:15px;font-weight:600;color:rgb(148, 141, 141)">already have an account</span>
-                    </div>
-                    <div class="col-12 text-center pt-3">
-                        <a href="#"><span class="login-page">login</span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-        <script src="/JS/login-form.js"></script>
+        <script type="text/javascript" src="/JS/login-form.js"></script>
+        <script src="/JS/logout.js"></script>
