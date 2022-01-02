@@ -58,4 +58,13 @@ router.get("/login-form", async (req, res) => {
   }
 });
 
+router.get("/my-movies", async (req, res) => {
+  try {
+    res.render("my-movies");
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

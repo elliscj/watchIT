@@ -1,0 +1,41 @@
+.card-header {
+  background-color: rgb(37, 37, 37);
+  color: white;
+  border-radius: 5px 5px 0 0;
+}
+
+.card-body {
+  background-color: rgba(179, 90, 179, 0.3);
+}
+
+/* Style Page */
+.scrapeImdb {
+  cursor: pointer;
+}
+
+/* Login (index) page */
+input[type="text"].form-control,
+input[type="password"].form-control {
+  background-color: white;
+  border-radius: 5px;
+}
+
+/* Search Page */
+#dropdownMenuButton::after {
+  content: "hi";
+}
+
+.movie-custom {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.img-custom {
+  margin: 10px 0;
+  width: 100%;
+}
+
+.input-width-custom {
+  width: 100px;
+}
