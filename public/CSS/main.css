@@ -199,3 +199,12 @@ a:hover {
   background-color: #e50914;
   color: #ffffff;
 }
+
+.wrap {
+  width: 700px;
+  margin: 10px auto;
+  color: #fff;
+  text-align: center;
+  font-size: 20em;
+  font-family: impact;
+}
