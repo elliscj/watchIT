@@ -104,7 +104,16 @@ $(document).ready(function () {
           //Without this line, there is nowhere for the posters and overviews to display so it doesn't show up
           $("#movieGenreLabel").html("Now Playing");
           //h1 will change depending on what is clicked. Will display "Now Playing" in this case.
+          document.addEventListener("click", function (e) {
+            if (e.target == ".add-to-favorites") {
+              alert("added");
+              //do something
+            }
+          });
         });
+        // document
+        //   .querySelector(".add-to-favorites")
+        //   .addEventListener(click, alert("added to favorites"));
       }
 
       // document
@@ -114,18 +123,23 @@ $(document).ready(function () {
       //   alert("Handler for .click() called.");
       // });
     });
-    // document.querySelectorAll(".add-to-favorites").forEach((item) => {
+
+    // document.addEventListener("click", function (e) {
+    //   if (e.target == ".add-to-favorites") {
+    //     alert("added");
+    //     //do something
+    //   }
+    // });
+    // document
+    //   .querySelectorAll(".add-to-favorites")
+    //   .addEventListener(click, alert("added to favorites"));
+    // let favortiesButtons = document.querySelectorAll(".add-to-favorites");
+    // favortiesButtons.forEach((item) => {
     //   item.addEventListener("click", (event) => {
     //     //handle click
     //     alert("added!!!!!!!!!!");
     //   });
     // });
-    document.addEventListener("click", function (e) {
-      if (e.target == "add-to-favorites") {
-        alert("added");
-        //do something
-      }
-    });
   }
   //==============================================================================
   //====================== Get movies by genre ===================================

@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const { Favorie, User, Rating } = require("../../models");
+const session = require("express-session");
+const { Favorite, User, Rating } = require("../../models");
 module.exports = router;
 
 // ~~ /api/users ~~ //
@@ -24,12 +25,12 @@ router.post("/", async (req, res) => {
       username: req.body.username,
       password: req.body.password,
     });
+    console.log(req.session);
+    req.session.save(() => {
+      req.session.loggedIn = true;
 
-    // req.session.save(() => {
-    //   req.session.loggedIn = true;
-
-    //   res.status(200).json(dbUserData);
-    // });
+      res.status(200).json(dbUserData);
+    });
     res.status(200).json(dbUserData);
   } catch (err) {
     console.log(err);
@@ -63,6 +64,8 @@ router.post("/login", async (req, res) => {
     }
 
     req.session.save(() => {
+      req.session.userId = user.id;
+      req.session.username = user.username;
       req.session.loggedIn = true;
 
       res
