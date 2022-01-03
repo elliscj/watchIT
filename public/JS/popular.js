@@ -6,19 +6,19 @@ $(document).ready(function () {
   // URL in Authentication. Base URL of image
   var imageBaseUrl = "https://image.tmdb.org/t/p/";
 
-  const nowPlayingURL = apiBaseURL + "movie/popular?api_key=" + apiKey;
+  const popularURL = apiBaseURL + "movie/popular?api_key=" + apiKey;
 
   //==============================================================================
   //====================== Get "now playing" data on default. ====================
   //=================== Change results when a genre is clicked on.================
   //==============================================================================
-  function getNowPlayingData() {
-    $.getJSON(nowPlayingURL, function (nowPlayingData) {
-      // console.log(nowPlayingData);
-      //we needed to add .results because nowPlayingData is an array.
-      for (let i = 0; i < nowPlayingData.results.length; i++) {
+  function getpopularData() {
+    $.getJSON(popularURL, function (popularData) {
+      // console.log(popularData);
+      //we needed to add .results because popularData is an array.
+      for (let i = 0; i < popularData.results.length; i++) {
         // w300 is how wide it is
-        var mid = nowPlayingData.results[i].id;
+        var mid = popularData.results[i].id;
         // mid = movie ID
         var thisMovieUrl =
           apiBaseURL + "movie/" + mid + "/videos?api_key=" + apiKey;
@@ -35,28 +35,27 @@ $(document).ready(function () {
           // console.log(movieKey.id);
 
           var poster =
-            imageBaseUrl + "w300" + nowPlayingData.results[i].poster_path;
+            imageBaseUrl + "w300" + popularData.results[i].poster_path;
           // console.log(poster);
 
-          var title = nowPlayingData.results[i].original_title;
+          var title = popularData.results[i].original_title;
 
-          var releaseDate = nowPlayingData.results[i].release_date;
+          var releaseDate = popularData.results[i].release_date;
 
-          var overview = nowPlayingData.results[i].overview;
+          var overview = popularData.results[i].overview;
           // $('.overview').addClass('overview');
 
-          var voteAverage = nowPlayingData.results[i].vote_average;
+          var voteAverage = popularData.results[i].vote_average;
           // console.log(movieKey)
           var youtubeKey = movieKey.results[0].key;
 
           var youtubeLink = "https://www.youtube.com/watch?v=" + youtubeKey;
           // console.log(youtubeLink)
 
-          var nowPlayingHTML = "";
-          // added in i to nowPlayingHTML. Without it, only the details for the first movie in the results display in the modal no matter which movie poster you click on.
-          nowPlayingHTML +=
-            '<div class="col-sm-3 col-lg-3 col-md-3 eachMovie">';
-          nowPlayingHTML +=
+          var popularHTML = "";
+          // added in i to popularHTML. Without it, only the details for the first movie in the results display in the modal no matter which movie poster you click on.
+          popularHTML += '<div class="col-sm-3 col-lg-3 col-md-3 eachMovie">';
+          popularHTML +=
             '<button type="button" class="btnModal" data-toggle="modal" data-target="#exampleModal' +
             i +
             '" data-whatever="@' +
@@ -65,41 +64,41 @@ $(document).ready(function () {
             '<img src="' +
             poster +
             '"></button>';
-          nowPlayingHTML +=
+          popularHTML +=
             '<div class="modal fade" id="exampleModal' +
             i +
             '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">';
-          nowPlayingHTML += '<div class="modal-dialog" role="document">';
-          nowPlayingHTML += '<div class="modal-content col-sm-12">';
-          nowPlayingHTML += '<div class="col-sm-6 moviePosterInModal">';
-          nowPlayingHTML +=
+          popularHTML += '<div class="modal-dialog" role="document">';
+          popularHTML += '<div class="modal-content col-sm-12">';
+          popularHTML += '<div class="col-sm-6 moviePosterInModal">';
+          popularHTML +=
             '<a href="' + youtubeLink + '"><img src="' + poster + '"></a>';
-          nowPlayingHTML += "</div><br>"; //close trailerLink
-          nowPlayingHTML += '<div class="col-sm-6 movieDetails">';
-          nowPlayingHTML += '<div class="movieName">' + title + "</div><br>";
-          nowPlayingHTML +=
+          popularHTML += "</div><br>"; //close trailerLink
+          popularHTML += '<div class="col-sm-6 movieDetails">';
+          popularHTML += '<div class="movieName">' + title + "</div><br>";
+          popularHTML +=
             '<div class="linkToTrailer" ><a href="' +
             youtubeLink +
             '"><span class="glyphicon glyphicon-play" style="color: red;"></span>&nbspPlay trailer</a>' +
             "</div><br>";
-          nowPlayingHTML +=
+          popularHTML +=
             '<div class="release">Release Date: ' + releaseDate + "</div><br>";
-          // nowPlayingHTML += '<div class="genre">Genre: '+genre+'</div><br>';
-          nowPlayingHTML += '<div class="overview">' + overview + "</div><br>"; // Put overview in a separate div to make it easier to style
-          nowPlayingHTML +=
+          // popularHTML += '<div class="genre">Genre: '+genre+'</div><br>';
+          popularHTML += '<div class="overview">' + overview + "</div><br>"; // Put overview in a separate div to make it easier to style
+          popularHTML +=
             '<div class="rating">Rating: ' + voteAverage + "/10</div><br>";
-          nowPlayingHTML +=
+          popularHTML +=
             '<div class="col-sm-5 btn btn-primary">Add to Favorite' + "</div>";
 
-          nowPlayingHTML += "</div>"; //close movieDetails
-          nowPlayingHTML += "</div>"; //close modal-content
-          nowPlayingHTML += "</div>"; //close modal-dialog
-          nowPlayingHTML += "</div>"; //close modal
-          nowPlayingHTML += "</div>"; //close off each div
+          popularHTML += "</div>"; //close movieDetails
+          popularHTML += "</div>"; //close modal-content
+          popularHTML += "</div>"; //close modal-dialog
+          popularHTML += "</div>"; //close modal
+          popularHTML += "</div>"; //close off each div
 
-          $("#movie-grid").append(nowPlayingHTML);
+          $("#movie-grid").append(popularHTML);
           //Without this line, there is nowhere for the posters and overviews to display so it doesn't show up
-          $("#movieGenreLabel").html("Now Playing");
+          $("#movieGenreLabel").html("Popular");
           //h1 will change depending on what is clicked. Will display "Now Playing" in this case.
         });
       }
@@ -183,21 +182,21 @@ $(document).ready(function () {
       }
     });
   }
-  // call getMoviesByGenre using click function but call getNowPlayingData on default.
-  getNowPlayingData();
+  // call getMoviesByGenre using click function but call getpopularData on default.
+  getpopularData();
 
   //Reset HTML strings to empty to overwrite with new one!
-  var nowPlayingHTML = "";
+  var popularHTML = "";
   var genreHTML = "";
 
   $(".navbar-brand").click(function () {
-    getNowPlayingData();
-    $("#movie-grid").html(nowPlayingHTML);
+    getpopularData();
+    $("#movie-grid").html(popularHTML);
     $("#movieGenreLabel").html("Now Playing");
   });
-  $(".nowPlaying").click(function () {
-    getNowPlayingData();
-    $("#movie-grid").html(nowPlayingHTML);
+  $(".popular").click(function () {
+    getpopularData();
+    $("#movie-grid").html(popularHTML);
     $("#movieGenreLabel").html("Now Playing");
   });
   $("#action").click(function () {
