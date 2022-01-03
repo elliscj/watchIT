@@ -1,5 +1,7 @@
 // serve up homepage
 
+const { Favorite } = require("../models");
+
 const router = require("express").Router();
 // const { User } = require("../models");
 // const withAuth = require("../utils/auth");
@@ -59,8 +61,16 @@ router.get("/login-form", async (req, res) => {
 });
 
 router.get("/my-movies", async (req, res) => {
+  // get all favorites and try to render my-movies to see if the partial is at least functioning properly
+
   try {
-    res.render("my-movies");
+    const favoriteData = await Favorite.findAll();
+
+    const movies = favoriteData.map((movie) => movie.get({ plain: true }));
+
+    res.render("my-movies", {
+      movies,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

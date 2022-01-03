@@ -79,17 +79,26 @@
                 <li><a href="#" class="thriller" style="color:red;"  id="thriller">Thriller</a></li>
               </ul>
             </li>
-         <li>
+         {{!-- {{#if loggedIn}} --}}
          <li>
           <a href="/my-movies">
          <i class="fas fa-camera-movie"></i>My Movies
           </a>
         </li>
+        {{!-- {{/if}} --}}
+        {{#if loggedIn}}
+        <li>
+          <button class="btn btn-primary" id="logout">
+        <i class="fa-regular fa-arrow-right-to-bracket"></i>LOGOUT
+          </button>
+        </li> 
+        {{else}}
         <li>
           <a href="/login-form">
         <i class="fa-regular fa-arrow-right-to-bracket"></i>LOGIN/SIGN UP
           </a>
         </li>
+        {{/if}}
       </ul>
       
     </div>
