@@ -26,7 +26,7 @@ router.get("/nowplaying", async (req, res) => {
 
 router.get("/popular", async (req, res) => {
   try {
-    res.render("popular");
+    res.render("popular", { loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -35,7 +35,7 @@ router.get("/popular", async (req, res) => {
 
 router.get("/toprated", async (req, res) => {
   try {
-    res.render("toprated");
+    res.render("toprated", { loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -44,7 +44,7 @@ router.get("/toprated", async (req, res) => {
 
 router.get("/upcoming", async (req, res) => {
   try {
-    res.render("upcoming");
+    res.render("upcoming", { loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -53,7 +53,7 @@ router.get("/upcoming", async (req, res) => {
 
 router.get("/login-form", async (req, res) => {
   try {
-    res.render("login-form");
+    res.render("login-form", { loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -62,18 +62,22 @@ router.get("/login-form", async (req, res) => {
 
 router.get("/my-movies", async (req, res) => {
   // get all favorites and try to render my-movies to see if the partial is at least functioning properly
+  if (!req.session.loggedIn) {
+    res.redirect("/login-form");
+  } else {
+    try {
+      const favoriteData = await Favorite.findAll();
 
-  try {
-    const favoriteData = await Favorite.findAll();
+      const movies = favoriteData.map((movie) => movie.get({ plain: true }));
 
-    const movies = favoriteData.map((movie) => movie.get({ plain: true }));
-
-    res.render("my-movies", {
-      movies,
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
+      res.render("my-movies", {
+        movies,
+        loggedIn: req.session.loggedIn,
+      });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
   }
 });
 
