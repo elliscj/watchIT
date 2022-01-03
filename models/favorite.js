@@ -15,15 +15,14 @@ Favorite.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    // run_time: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    // },
-    // release_year: {
-    //   type: DataTypes.INTEGER,
-    // },
+    description: {
+      type: DataTypes.TEXT,
+    },
+    poster_url: {
+      type: DataTypes.STRING(5000),
+    },
     trailer_url: {
-      type: DataTypes.STRING(10000),
+      type: DataTypes.STRING(5000),
     },
     user_id: {
       type: DataTypes.INTEGER,

@@ -7,7 +7,7 @@ const { Favorite, User, Rating } = require("../../models");
 router.get("/", async (req, res) => {
   try {
     const favoriteData = await Favorite.findAll({
-      include: [{ model: Rating }],
+      // include: [{ model: Rating }],
     });
     res.status(200).json(favoriteData);
   } catch (err) {

@@ -89,7 +89,8 @@ $(document).ready(function () {
           nowPlayingHTML +=
             '<div class="rating">Rating: ' + voteAverage + "/10</div><br>";
           nowPlayingHTML +=
-            '<div class="col-sm-5 btn btn-primary">Add to Favorite' + "</div>";
+            '<div class="col-sm-5 btn btn-primary add-to-favorites">Add to Favorite' +
+            "</div>";
           nowPlayingHTML +=
             '<div class="col-sm-4 btn btn-primary">Git Ticket' + "</div>";
 
@@ -104,6 +105,25 @@ $(document).ready(function () {
           $("#movieGenreLabel").html("Now Playing");
           //h1 will change depending on what is clicked. Will display "Now Playing" in this case.
         });
+      }
+
+      // document
+      //   .querySelectorAll(".add-to-favorites")
+      //   .addEventListener(click, alert("added to favorites"));
+      // $(".add-to-favorites").click(function () {
+      //   alert("Handler for .click() called.");
+      // });
+    });
+    // document.querySelectorAll(".add-to-favorites").forEach((item) => {
+    //   item.addEventListener("click", (event) => {
+    //     //handle click
+    //     alert("added!!!!!!!!!!");
+    //   });
+    // });
+    document.addEventListener("click", function (e) {
+      if (e.target == "add-to-favorites") {
+        alert("added");
+        //do something
       }
     });
   }
@@ -374,3 +394,10 @@ $(document).ready(function () {
     });
   }
 });
+
+// document.querySelectorAll(".add-to-favorites").forEach((item) => {
+//   item.addEventListener("click", (event) => {
+//     //handle click
+//     alert("added!!!!!!!!!!");
+//   });
+// });

@@ -2,11 +2,11 @@
 
  
 
-  <body>
+  {{!-- <body> --}}
     <div class="container"></div>
 
 
-<div ></div>
+{{!-- <div ></div> --}}
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -79,16 +79,25 @@
                 <li><a href="#" class="thriller" style="color:red;"  id="thriller">Thriller</a></li>
               </ul>
             </li>
+            
          <li class="active">
           <a href="/my-movies">
          <i class="fas fa-camera-movie"></i>My Movies
           </a>
         </li>
+        {{#if loggedIn}}
+        <li>
+          <button class="btn btn-primary" id="logout">
+        <i class="fa-regular fa-arrow-right-to-bracket"></i>LOGOUT
+          </button>
+        </li> 
+        {{else}}
         <li>
           <a href="/login-form">
         <i class="fa-regular fa-arrow-right-to-bracket"></i>LOGIN/SIGN UP
           </a>
         </li>
+        {{/if}}
       </ul>
       
     </div>
@@ -109,16 +118,16 @@
   
   <!-- /.container-fluid -->
 </nav>
-    <div class="jumbotron text-center background-image">
-        <h1>WatchiT</h1>
-        <h4>Create your movie watchlist and track the movies you've watched</h4>
+    <div class="text-center background-image">
+        <h2 class="favorite-page-title">FAVORITES</h2>
       </div>
-    </header>
+   
 
-    <section class="container">
-      
-    </section>
+    
+    {{#each movies as |movie|}}
+    {{> favorite}}
+    {{/each}}
+
+
     
 
-       <script type="text/javascript" src="JS/my-movies.JS"></script>
-   
