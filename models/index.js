@@ -1,6 +1,6 @@
-const User = require("./User");
+const User = require("./user");
 const Favorite = require("./favorite");
-const Rating = require("./Rating");
+const Rating = require("./rating");
 
 Favorite.belongsTo(User, {
   foreignKey: "user_id",
