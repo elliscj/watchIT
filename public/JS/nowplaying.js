@@ -1,7 +1,8 @@
+// require("dotenv").config();
 $(document).ready(function () {
   // The base url for all API calls
   const apiKey = "ee38940464e0659bf989e10fd5fedb86";
-  // const apiKey = process.env.apiKey;
+  // const apiKey = process.env.API_KEY;
 
   var apiBaseURL = "https://api.themoviedb.org/3/";
 
