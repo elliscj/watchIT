@@ -79,13 +79,13 @@
                 <li><a href="#" class="thriller" style="color:red;"  id="thriller">Thriller</a></li>
               </ul>
             </li>
-        
+        {{#if loggedIn}}
          <li>
           <a href="/my-movies">
          <i class="fas fa-camera-movie"></i>My Movies
           </a>
         </li>
-        
+        {{/if}}
         {{#if loggedIn}}
         <li>
           <button class="btn btn-primary" id="logout">
@@ -99,6 +99,7 @@
           </a>
         </li>
         {{/if}}
+
       </ul>
       
     </div>
@@ -130,7 +131,7 @@
         </div>
       </div>
     </div>
-
+    
  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script  type="text/javascript" src="/JS/nowplaying.js"></script>

@@ -1,6 +1,8 @@
 $(document).ready(function () {
   // The base url for all API calls
   const apiKey = "ee38940464e0659bf989e10fd5fedb86";
+  // const apiKey = process.env.apiKey;
+
   var apiBaseURL = "https://api.themoviedb.org/3/";
 
   // URL in Authentication. Base URL of image
@@ -88,9 +90,7 @@ $(document).ready(function () {
           nowPlayingHTML += '<div class="overview">' + overview + "</div><br>"; // Put overview in a separate div to make it easier to style
           nowPlayingHTML +=
             '<div class="rating">Rating: ' + voteAverage + "/10</div><br>";
-          nowPlayingHTML +=
-            '<div class="col-sm-5 btn btn-primary add-to-favorites">Add to Favorite' +
-            "</div>";
+          nowPlayingHTML += `<div class="col-sm-5 btn btn-primary add-to-favorites" data-overview="${overview}" data-poster="${poster}" data-trailer="${youtubeLink}" data-title="${title}">Add to Favorite</div>`;
           nowPlayingHTML +=
             '<div class="col-sm-4 btn btn-primary">Git Ticket' + "</div>";
 
@@ -104,43 +104,11 @@ $(document).ready(function () {
           //Without this line, there is nowhere for the posters and overviews to display so it doesn't show up
           $("#movieGenreLabel").html("Now Playing");
           //h1 will change depending on what is clicked. Will display "Now Playing" in this case.
-          document.addEventListener("click", function (e) {
-            if (e.target == ".add-to-favorites") {
-              alert("added");
-              //do something
-            }
-          });
         });
-        // document
-        //   .querySelector(".add-to-favorites")
-        //   .addEventListener(click, alert("added to favorites"));
       }
-
-      // document
-      //   .querySelectorAll(".add-to-favorites")
-      //   .addEventListener(click, alert("added to favorites"));
-      // $(".add-to-favorites").click(function () {
-      //   alert("Handler for .click() called.");
-      // });
     });
-
-    // document.addEventListener("click", function (e) {
-    //   if (e.target == ".add-to-favorites") {
-    //     alert("added");
-    //     //do something
-    //   }
-    // });
-    // document
-    //   .querySelectorAll(".add-to-favorites")
-    //   .addEventListener(click, alert("added to favorites"));
-    // let favortiesButtons = document.querySelectorAll(".add-to-favorites");
-    // favortiesButtons.forEach((item) => {
-    //   item.addEventListener("click", (event) => {
-    //     //handle click
-    //     alert("added!!!!!!!!!!");
-    //   });
-    // });
   }
+
   //==============================================================================
   //====================== Get movies by genre ===================================
   //==============================================================================
@@ -203,8 +171,7 @@ $(document).ready(function () {
           genreHTML += '<div class="overview">' + overview + "</div><br>";
           genreHTML +=
             '<div class="rating">Rating: ' + voteAverage + "/10</div><br>";
-          genreHTML +=
-            '<div class="col-sm-5 btn btn-primary">Add to Favorite' + "</div>";
+          genreHTML += `<div class="col-sm-5 btn btn-primary add-to-favorites" data-overview="${overview}" data-poster="${poster}" data-trailer="${youtubeLink}" data-title="${title}">Add to Favorite</div>`;
           genreHTML +=
             '<div class="col-sm-4 btn btn-primary">Git Ticket' + "</div>";
 
@@ -390,8 +357,7 @@ $(document).ready(function () {
             '<div class="overview">' + overview + "</div><br>";
           searchResultsHTML +=
             '<div class="rating">Rating: ' + voteAverage + "/10</div><br>";
-          searchResultsHTML +=
-            '<div class="col-sm-5 btn btn-primary">Add to Favorite' + "</div>";
+          searchResultsHTML += `<div class="col-sm-5 btn btn-primary add-to-favorites" data-overview="${overview}" data-poster="${poster}" data-trailer="${youtubeLink}" data-title="${title}">Add to Favorite</div>`;
           searchResultsHTML +=
             '<div class="col-sm-4 btn btn-primary">Git Ticket' + "</div>";
 
@@ -407,11 +373,28 @@ $(document).ready(function () {
       }
     });
   }
+  $(document).on("click", ".add-to-favorites", async (e) => {
+    console.log(e.target.dataset);
+    const { overview, poster, trailer, title } = e.target.dataset;
+    // alert(title);
+    const newFav = {
+      title,
+      description: overview,
+      poster_url: poster,
+      trailer_url: trailer,
+    };
+    console.log(newFav);
+    const response = await fetch("/api/favorites/add", {
+      method: "POST",
+      body: JSON.stringify(newFav),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      alert("added to favorites!");
+    } else {
+      alert("This movie is terrible!");
+    }
+  });
 });
-
-// document.querySelectorAll(".add-to-favorites").forEach((item) => {
-//   item.addEventListener("click", (event) => {
-//     //handle click
-//     alert("added!!!!!!!!!!");
-//   });
-// });
