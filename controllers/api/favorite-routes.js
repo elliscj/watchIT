@@ -32,14 +32,18 @@ router.get("/:id", async (req, res) => {
 
 // add movie to users favorites
 router.post("/add", async (req, res) => {
-  req.body.user_id = req.session.user.userId;
-  console.log(req.body);
-  try {
-    const dbFavoriteData = await Favorite.create(req.body);
-    res.status(200).json(dbFavoriteData);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
+  if (!req.session.user.userId) {
+    alert("You must sign in to use this feature!");
+  } else {
+    req.body.user_id = req.session.user.userId;
+    console.log(req.body);
+    try {
+      const dbFavoriteData = await Favorite.create(req.body);
+      res.status(200).json(dbFavoriteData);
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
   }
 });
 
