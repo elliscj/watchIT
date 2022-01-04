@@ -31,13 +31,11 @@ router.get("/:id", async (req, res) => {
 });
 
 // add movie to users favorites
-router.post("/:id", async (req, res) => {
+router.post("/add", async (req, res) => {
+  req.body.user_id = req.session.user.userId;
+  console.log(req.body);
   try {
-    const dbFavoriteData = await Favorite.create({
-      title: req.body.title,
-      trailer_url: req.body.trailer_url,
-      user_id: req.params.id,
-    });
+    const dbFavoriteData = await Favorite.create(req.body);
     res.status(200).json(dbFavoriteData);
   } catch (err) {
     console.log(err);

@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
 
 router.get("/nowplaying", async (req, res) => {
   try {
-    res.render("nowplaying");
+    res.render("nowplaying", { loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -53,7 +53,7 @@ router.get("/upcoming", async (req, res) => {
 
 router.get("/login-form", async (req, res) => {
   try {
-    res.render("login-form", { loggedIn: req.session.loggedIn });
+    res.render("login-form");
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -66,7 +66,11 @@ router.get("/my-movies", async (req, res) => {
     res.redirect("/login-form");
   } else {
     try {
-      const favoriteData = await Favorite.findAll();
+      const favoriteData = await Favorite.findAll({
+        where: {
+          user_id: req.session.user.userId,
+        },
+      });
 
       const movies = favoriteData.map((movie) => movie.get({ plain: true }));
 

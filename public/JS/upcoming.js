@@ -87,8 +87,7 @@ $(document).ready(function () {
           upcomingHTML += '<div class="overview">' + overview + "</div><br>"; // Put overview in a separate div to make it easier to style
           upcomingHTML +=
             '<div class="rating">Rating: ' + voteAverage + "/10</div><br>";
-          upcomingHTML +=
-            '<div class="col-sm-5 btn btn-primary">Add to Favorite' + "</div>";
+          upcomingHTML += `<div class="col-sm-5 btn btn-primary add-to-favorites" data-overview="${overview}" data-poster="${poster}" data-trailer="${youtubeLink}" data-title="${title}">Add to Favorite</div>`;
 
           upcomingHTML += "</div>"; //close movieDetails
           upcomingHTML += "</div>"; //close modal-content
@@ -104,6 +103,7 @@ $(document).ready(function () {
       }
     });
   }
+
   //==============================================================================
   //====================== Get movies by genre ===================================
   //==============================================================================
@@ -166,8 +166,7 @@ $(document).ready(function () {
           genreHTML += '<div class="overview">' + overview + "</div><br>";
           genreHTML +=
             '<div class="rating">Rating: ' + voteAverage + "/10</div><br>";
-          genreHTML +=
-            '<div class="col-sm-5 btn btn-primary">Add to Favorite' + "</div>";
+          genreHTML += `<div class="col-sm-5 btn btn-primary add-to-favorites" data-overview="${overview}" data-poster="${poster}" data-trailer="${youtubeLink}" data-title="${title}">Add to Favorite</div>`;
 
           genreHTML += "</div>"; //close movieDetails
           genreHTML += "</div>"; //close modal-content
@@ -351,8 +350,7 @@ $(document).ready(function () {
             '<div class="overview">' + overview + "</div><br>";
           searchResultsHTML +=
             '<div class="rating">Rating: ' + voteAverage + "/10</div><br>";
-          searchResultsHTML +=
-            '<div class="col-sm-5 btn btn-primary">Add to Favorite' + "</div>";
+          searchResultsHTML += `<div class="col-sm-5 btn btn-primary add-to-favorites" data-overview="${overview}" data-poster="${poster}" data-trailer="${youtubeLink}" data-title="${title}">Add to Favorite</div>`;
 
           searchResultsHTML += "</div>"; //close movieDetails
           searchResultsHTML += "</div>"; //close modal-dialog
@@ -366,4 +364,28 @@ $(document).ready(function () {
       }
     });
   }
+  $(document).on("click", ".add-to-favorites", async (e) => {
+    console.log(e.target.dataset);
+    const { overview, poster, trailer, title } = e.target.dataset;
+    // alert(title);
+    const newFav = {
+      title,
+      description: overview,
+      poster_url: poster,
+      trailer_url: trailer,
+    };
+    console.log(newFav);
+    const response = await fetch("/api/favorites/add", {
+      method: "POST",
+      body: JSON.stringify(newFav),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      alert("added to favorites!");
+    } else {
+      alert("This movie is terrible!");
+    }
+  });
 });
