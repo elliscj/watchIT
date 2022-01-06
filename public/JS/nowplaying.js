@@ -392,10 +392,11 @@ $(document).ready(function () {
         "Content-Type": "application/json",
       },
     });
-    if (response.ok) {
+    console.log(response);
+    if (response.status === 200) {
       alert("added to favorites!");
     } else {
-      alert("This movie is terrible!");
+      alert("Please login to use this feature.");
     }
   });
 });
