@@ -32,8 +32,11 @@ router.get("/:id", async (req, res) => {
 
 // add movie to users favorites
 router.post("/add", async (req, res) => {
-  if (!req.session.user.userId) {
-    alert("You must sign in to use this feature!");
+  const isLoggedIn = req.session.user || null;
+  // console.log(isLoggedIn);
+  // console.log(req.session);
+  if (isLoggedIn === null) {
+    res.status(403).send("You must be logged in to use this feature.");
   } else {
     req.body.user_id = req.session.user.userId;
     console.log(req.body);

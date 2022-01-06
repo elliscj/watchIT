@@ -385,7 +385,7 @@ $(document).ready(function () {
     if (response.ok) {
       alert("added to favorites!");
     } else {
-      alert("This movie is terrible!");
+      alert("Please login to use this feature.");
     }
   });
 });

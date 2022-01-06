@@ -73,7 +73,10 @@ router.get("/my-movies", async (req, res) => {
       });
 
       const movies = favoriteData.map((movie) => movie.get({ plain: true }));
-
+      movies.forEach((movie, index) => {
+        movie.index = index;
+      });
+      console.log(movies);
       res.render("my-movies", {
         movies,
         loggedIn: req.session.loggedIn,
