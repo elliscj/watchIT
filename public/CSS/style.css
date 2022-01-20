@@ -11,14 +11,6 @@ a:hover {
   min-height: 100%;
 }
 
-.body {
-  @media all (max-width: 1024px) {
-    left: 33%;
-  }
-  @media all (min-width: 1025px) {
-    left: 25%;
-  }
-}
 /* when < 480 change to block item */
 .logo {
   padding: 4px 20px 0px 15px;
