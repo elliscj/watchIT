@@ -10,6 +10,7 @@ a:hover {
   min-width: 100%;
   min-height: 100%;
 }
+
 /* when < 480 change to block item */
 .logo {
   padding: 4px 20px 0px 15px;
@@ -70,10 +71,10 @@ a:hover {
   letter-spacing: 1px;
   z-index: 1;
   margin: 1em auto;
-  padding: 1em 3em;
-  margin-left: 38px;
+  padding: 1em 1em;
+  margin-left: 30px;
   cursor: pointer;
-  font-size: 1.2em;
+  font-size: 1em;
   line-height: 1em;
   display: inline-block;
   text-align: center;
