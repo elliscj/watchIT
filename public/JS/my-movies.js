@@ -1,3 +1,5 @@
+// remove movie api call (fetch)
+
 // $(document).on("click", ".add-to-favorites", async (e) => {
 //   console.log(e.target.dataset);
 //   const { overview, poster, trailer, title } = e.target.dataset;

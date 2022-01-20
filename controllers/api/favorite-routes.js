@@ -40,14 +40,27 @@ router.post("/add", async (req, res) => {
   } else {
     req.body.user_id = req.session.user.userId;
     console.log(req.body);
-    try {
-      const dbFavoriteData = await Favorite.create(req.body);
-      res.status(200).json(dbFavoriteData);
-    } catch (err) {
-      console.log(err);
-      res.status(500).json(err);
+    const currentFavorite = await Favorite.findOne({
+      where: {
+        title: req.body.title,
+        user_id: req.session.user.userId,
+      },
+    });
+    console.log(currentFavorite);
+    if (!currentFavorite) {
+      try {
+        const dbFavoriteData = await Favorite.create(req.body);
+        res.status(200).json(dbFavoriteData);
+      } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+      }
+    } else {
+      res.status(403).send("Movie already saved to favorites");
     }
   }
 });
+
+// remove from favorites
 
 module.exports = router;
