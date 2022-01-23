@@ -62,5 +62,54 @@ router.post("/add", async (req, res) => {
 });
 
 // remove from favorites
+router.delete("/remove", async (req, res) => {
+  // const isLoggedIn = req.session.user
+  try {
+    await Favorite.destroy({
+      where: {
+        title: req.body.title,
+        user_id: req.session.user.userId,
+      },
+    });
+    // ~~~~ do not get 'removed' alert if this is not included...? (from my-movies.js)
+    const favoriteData = await Favorite.findAll({
+      where: {
+        user_id: req.session.user.userId,
+      },
+    });
+    const movies = favoriteData.map((movie) => movie.get({ plain: true }));
+    movies.forEach((movie, index) => {
+      movie.index = index;
+    });
+    console.log(movies);
+    res.render("my-movies", {
+      movies,
+      loggedIn: req.session.loggedIn,
+    });
+    // ~~~~
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+// try {
+//   const favoriteData = await Favorite.findAll({
+//     where: {
+//       user_id: req.session.user.userId,
+//     },
+//   });
+
+//   const movies = favoriteData.map((movie) => movie.get({ plain: true }));
+//   movies.forEach((movie, index) => {
+//     movie.index = index;
+//   });
+//   console.log(movies);
+//   res.render("my-movies", {
+//     movies,
+//     loggedIn: req.session.loggedIn,
+//   });
+// } catch (err) {
+//   console.log(err);
+//   res.status(500).json(err);
+// }
 
 module.exports = router;
