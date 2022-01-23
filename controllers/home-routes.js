@@ -71,7 +71,6 @@ router.get("/my-movies", async (req, res) => {
           user_id: req.session.user.userId,
         },
       });
-
       const movies = favoriteData.map((movie) => movie.get({ plain: true }));
       movies.forEach((movie, index) => {
         movie.index = index;

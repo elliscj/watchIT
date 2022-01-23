@@ -10,7 +10,7 @@ const loginFormHandler = async (event) => {
       body: JSON.stringify({ email, password }),
       headers: { "Content-Type": "application/json" },
     });
-
+    // await document.location.relplace("/nowplaying")(to get back end messge instead of alert)
     if (response.ok) {
       document.location.replace("/nowplaying");
     } else {

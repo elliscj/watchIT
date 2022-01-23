@@ -1,4 +1,40 @@
 // remove movie api call (fetch)
+$(document).on("click", ".remove-favorite", async (e) => {
+  console.log(e.target.dataset);
+  const { title } = e.target.dataset;
+  const removeFav = {
+    title,
+  };
+  console.log(removeFav);
+  const response = await fetch("/api/favorites/remove", {
+    method: "DELETE",
+    body: JSON.stringify(removeFav),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  console.log(response);
+  if (response.status === 200) {
+    alert("removed from favorites!");
+    // $(document).location.replace("/my-movies");
+  } else {
+    alert(`${response.status} ${response.statusText}`);
+  }
+});
+
+// router.delete("/remove", async (req, res) => {
+//   // const isLoggedIn = req.session.user
+//   try {
+//     await Favorite.destroy({
+//       where: {
+//         title: req.body.title,
+//         user_id: req.session.user.userId,
+//       },
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // $(document).on("click", ".add-to-favorites", async (e) => {
 //   console.log(e.target.dataset);
