@@ -143,3 +143,22 @@ a:hover {
   height: 100%;
   width: 135%;
 }
+
+/* @media screen and (max-width: 992px) {
+  #myVideo {
+    position: absolute;
+    background-position: center;
+    min-width: 100%;
+    min-height: 100%;
+  }
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+/* @media screen and (max-width: 600px) {
+  #myVideo {
+    position: absolute;
+    background-position: center;
+    min-width: 100%;
+    min-height: 100%;
+  }
+} */ */
