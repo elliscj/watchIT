@@ -54,7 +54,7 @@ $(document).ready(function () {
 
           var popularHTML = "";
           // added in i to popularHTML. Without it, only the details for the first movie in the results display in the modal no matter which movie poster you click on.
-          popularHTML += '<div class="col-sm-3 col-lg-3 col-md-3 eachMovie">';
+          popularHTML += '<div class="col-sm-6 col-lg-3 col-md-3 eachMovie">';
           popularHTML +=
             '<button type="button" class="btnModal" data-toggle="modal" data-target="#exampleModal' +
             i +
@@ -134,7 +134,7 @@ $(document).ready(function () {
           var youtubeKey = movieKey.results[0].key;
           var youtubeLink = "https://www.youtube.com/watch?v=" + youtubeKey;
           var genreHTML = "";
-          genreHTML += '<div class="col-sm-3 col-md-3 col-lg-3 eachMovie">';
+          genreHTML += '<div class="col-sm-6 col-md-3 col-lg-3 eachMovie">';
           genreHTML +=
             '<button type="button" class="btnModal" data-toggle="modal" data-target="#exampleModal' +
             i +
@@ -316,7 +316,7 @@ $(document).ready(function () {
           var youtubeLink = "https://www.youtube.com/watch?v=" + youtubeKey;
           var searchResultsHTML = "";
           searchResultsHTML +=
-            '<div class="col-sm-3 col-md-3 col-lg-3 eachMovie">';
+            '<div class="col-sm-6 col-md-3 col-lg-3 eachMovie">';
           searchResultsHTML +=
             '<button type="button" class="btnModal" data-toggle="modal" data-target="#exampleModal' +
             i +

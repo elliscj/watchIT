@@ -52,7 +52,7 @@ pre {
 } */
 
 #review {
-  font-size: 2.5em;
+  font-size: 1.7em;
   text-align: center;
   padding: 24px 0;
   position: relative;
@@ -82,8 +82,8 @@ pre {
 }
 
 .success-box {
-  margin: 20px 0;
-  padding: 10px 10px;
+  margin: 5px 0;
+  padding: 2px 4px;
   border: 1px solid #eee;
   background: #f9f9f9;
 }
