@@ -58,7 +58,7 @@ $(document).ready(function () {
           var nowPlayingHTML = "";
           // added in i to nowPlayingHTML. Without it, only the details for the first movie in the results display in the modal no matter which movie poster you click on.
           nowPlayingHTML +=
-            '<div class="col-sm-6 col-lg-3 col-md-3 eachMovie">';
+            '<div class="col-xs-6 col-sm-6 col-lg-3 col-md-3  eachMovie">';
           nowPlayingHTML +=
             '<button type="button" class="btnModal" data-toggle="modal" data-target="#exampleModal' +
             i +
