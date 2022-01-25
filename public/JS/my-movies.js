@@ -16,6 +16,7 @@ $(document).on("click", ".remove-favorite", async (e) => {
   console.log(response);
   if (response.status === 200) {
     alert("removed from favorites!");
+    window.location.replace("/my-movies");
     // $(document).location.replace("/my-movies");
   } else {
     alert(`${response.status} ${response.statusText}`);

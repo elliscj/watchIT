@@ -72,14 +72,18 @@ $(document).ready(function () {
           popularHTML += '<div class="modal-content col-sm-12">';
           popularHTML += '<div class="col-sm-6 moviePosterInModal">';
           popularHTML +=
-            '<a href="' + youtubeLink + '"><img src="' + poster + '"></a>';
+            '<a href="' +
+            youtubeLink +
+            '" target="_blank"><img src="' +
+            poster +
+            '"></a>';
           popularHTML += "</div><br>"; //close trailerLink
           popularHTML += '<div class="col-sm-6 movieDetails">';
           popularHTML += '<div class="movieName">' + title + "</div><br>";
           popularHTML +=
             '<div class="linkToTrailer" ><a href="' +
             youtubeLink +
-            '"><button type="button" class="btn btn-red btn-lg">Watch Trailer</button></a>' +
+            '" target="_blank"><button type="button" class="btn btn-red btn-lg">Watch Trailer</button></a>' +
             "</div><br>";
           popularHTML +=
             '<div class="release">Release Date: ' + releaseDate + "</div><br>";
@@ -152,14 +156,18 @@ $(document).ready(function () {
           genreHTML += '<div class="modal-content col-sm-12 col-lg-12">';
           genreHTML += '<div class="col-sm-6 moviePosterInModal">';
           genreHTML +=
-            '<a href="' + youtubeLink + '"><img src="' + poster + '"></a>';
+            '<a href="' +
+            youtubeLink +
+            '" target="_blank"><img src="' +
+            poster +
+            '"></a>';
           genreHTML += "</div><br>"; //close trailerLink
           genreHTML += '<div class="col-sm-6 movieDetails">';
           genreHTML += '<div class="movieName">' + title + "</div><br>";
           genreHTML +=
             '<div class="linkToTrailer" ><a href="' +
             youtubeLink +
-            '"><button type="button" class="btn btn-red btn-lg">Watch Trailer</button></a>' +
+            '" target="_blank"><button type="button" class="btn btn-red btn-lg">Watch Trailer</button></a>' +
             "</div><br>";
           genreHTML +=
             '<div class="release">Release Date: ' + releaseDate + "</div><br>";
@@ -335,14 +343,18 @@ $(document).ready(function () {
             '<div class="modal-content col-sm-12 col-lg-12">';
           searchResultsHTML += '<div class="col-sm-6 moviePosterInModal">';
           searchResultsHTML +=
-            '<a href="' + youtubeLink + '"><img src="' + poster + '"></a>';
+            '<a href="' +
+            youtubeLink +
+            '" target="_blank"><img src="' +
+            poster +
+            '"></a>';
           searchResultsHTML += "</div><br>"; //close trailerLink
           searchResultsHTML += '<div class="col-sm-6 movieDetails">';
           searchResultsHTML += '<div class="movieName">' + title + "</div><br>";
           searchResultsHTML +=
             '<div class="linkToTrailer" ><a href="' +
             youtubeLink +
-            '"><button type="button" class="btn btn-red btn-lg">Watch Trailer</button></a>' +
+            '" target="_blank"><button type="button" class="btn btn-red btn-lg">Watch Trailer</button></a>' +
             "</div><br>";
           searchResultsHTML +=
             '<div class="release">Release Date: ' + releaseDate + "</div><br>";
@@ -382,8 +394,10 @@ $(document).ready(function () {
         "Content-Type": "application/json",
       },
     });
-    if (response.ok) {
+    if (response.status === 200) {
       alert("added to favorites!");
+    } else if (response.status === 403) {
+      alert("movie already added to favorites!");
     } else {
       alert("Please login to use this feature.");
     }
