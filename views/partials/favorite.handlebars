@@ -20,14 +20,16 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content col-sm-12">
         <div class="col-sm-6 moviePosterInModal">
-          <a href="{{trailer_url}}"><img src="{{poster_url}}" /></a>
+          <a href="{{trailer_url}}" target="_blank"><img
+              src="{{poster_url}}"
+            /></a>
         </div>
         <br />
         <div class="col-sm-6 movieDetails">
           <div class="movieName">{{title}}</div>
           <br />
           <div class="linkToTrailer">
-            <a href="{{trailer_url}}"><button
+            <a href="{{trailer_url}}" target="_blank"><button
                 type="button"
                 class="btn btn-red btn-lg"
               >Watch Trailer</button></a>
@@ -41,13 +43,13 @@
           {{! <br />
           <div class="rating">Rating: 7.5/10</div>
           <br /> }}
-          <div
+          <button
             id="remove"
             class="col-sm-5 btn btn-primary remove-favorite"
             data-title="{{title}}"
           >
             Remove
-          </div>
+          </button>
           <br />
 
           <br />
@@ -75,11 +77,11 @@
               </ul>
             </div>
 
-            <div class="success-box">
+            {{! <div class="success-box">
               <div class="clearfix"></div>
               <div class="text-message"></div>
               <div class="clearfix"></div>
-            </div>
+            </div> }}
 
           </section>
 

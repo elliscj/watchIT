@@ -33,10 +33,10 @@ router.get("/:id", async (req, res) => {
 // add movie to users favorites
 router.post("/add", async (req, res) => {
   const isLoggedIn = req.session.user || null;
-  // console.log(isLoggedIn);
+  console.log(isLoggedIn);
   // console.log(req.session);
   if (isLoggedIn === null) {
-    res.status(403).send("You must be logged in to use this feature.");
+    res.status(400).send("You must be logged in to use this feature.");
   } else {
     req.body.user_id = req.session.user.userId;
     console.log(req.body);
@@ -71,6 +71,7 @@ router.delete("/remove", async (req, res) => {
         user_id: req.session.user.userId,
       },
     });
+
     // ~~~~ do not get 'removed' alert if this is not included...? (from my-movies.js)
     const favoriteData = await Favorite.findAll({
       where: {
