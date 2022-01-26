@@ -1,3 +1,5 @@
+$(".removed").hide();
+
 // remove movie api call (fetch)
 $(document).on("click", ".remove-favorite", async (e) => {
   console.log(e.target.dataset);
@@ -15,12 +17,21 @@ $(document).on("click", ".remove-favorite", async (e) => {
   });
   console.log(response);
   if (response.status === 200) {
-    alert("removed from favorites!");
-    window.location.replace("/my-movies");
-    // $(document).location.replace("/my-movies");
-  } else {
-    alert(`${response.status} ${response.statusText}`);
+    $(".removed").show();
   }
+  setTimeout(() => {
+    $(".removed").hide();
+    // $(".must-login").hide();
+    // $(".already-added").hide();
+    window.location.replace("/my-movies");
+  }, 1700);
+  // -- would like to have location replace only after the user clicks out of modal. NEXT STEP
+  // if (response.status === 200) {
+  //   alert("removed from favorites!");
+  //   window.location.replace("/my-movies");
+  // } else {
+  //   alert(`${response.status} ${response.statusText}`);
+  // }
 });
 
 // router.delete("/remove", async (req, res) => {

@@ -1,4 +1,4 @@
-<div class="col-xs-6 col-sm-6 col-lg-3 col-md-3 eachMovie">
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 eachMovie">
   <button
     type="button"
     class="btnModal"
@@ -18,9 +18,14 @@
     style="display: none"
   >
     <div class="modal-dialog" role="document">
+
+      <div class="alert alert-danger removed" role="alert">Movie removed from
+        favorites!</div>
+
       <div class="modal-content col-sm-12">
         <div class="col-sm-6 moviePosterInModal">
           <a href="{{trailer_url}}" target="_blank"><img
+              class="col-xs-12"
               src="{{poster_url}}"
             /></a>
         </div>
