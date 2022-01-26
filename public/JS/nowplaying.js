@@ -68,6 +68,7 @@ $(document).ready(function () {
             '<img src="' +
             poster +
             '"></button>';
+
           nowPlayingHTML +=
             '<div class="modal fade" id="exampleModal' +
             i +
@@ -93,11 +94,17 @@ $(document).ready(function () {
             '<div class="release">Release Date: ' + releaseDate + "</div><br>";
           // nowPlayingHTML += '<div class="genre">Genre: '+genre+'</div><br>';
           nowPlayingHTML += '<div class="overview">' + overview + "</div><br>"; // Put overview in a separate div to make it easier to style
+          // nowPlayingHTML +=
+          //   '<button type="button" class="close mt-5"' >
+          //   +"<span>X</span>" + '"</button>';
           nowPlayingHTML +=
             '<div class="rating">Rating: ' + voteAverage + "/10</div><br>";
           nowPlayingHTML += `<div class="col-sm-5 btn btn-primary add-to-favorites" data-overview="${overview}" data-poster="${poster}" data-trailer="${youtubeLink}" data-title="${title}">Add to Favorite</div>`;
           nowPlayingHTML +=
-            '<div class="col-sm-4 btn btn-primary">Git Ticket' + "</div>";
+            '<div class="col-sm-5 btn btn-primary" ><a href="' +
+            "/nowplaying" +
+            '">More Movies</a>' +
+            "</div><br>";
 
           nowPlayingHTML += "</div>"; //close movieDetails
           nowPlayingHTML += "</div>"; //close modal-content
@@ -182,7 +189,10 @@ $(document).ready(function () {
             '<div class="rating">Rating: ' + voteAverage + "/10</div><br>";
           genreHTML += `<div class="col-sm-5 btn btn-primary add-to-favorites" data-overview="${overview}" data-poster="${poster}" data-trailer="${youtubeLink}" data-title="${title}">Add to Favorite</div>`;
           genreHTML +=
-            '<div class="col-sm-4 btn btn-primary">Git Ticket' + "</div>";
+            '<div class="col-sm-5 btn btn-primary" ><a href="' +
+            "/nowplaying" +
+            '">More Movies</a>' +
+            "</div><br>";
 
           genreHTML += "</div>"; //close movieDetails
           genreHTML += "</div>"; //close modal-content
@@ -372,7 +382,10 @@ $(document).ready(function () {
             '<div class="rating">Rating: ' + voteAverage + "/10</div><br>";
           searchResultsHTML += `<div class="col-sm-5 btn btn-primary add-to-favorites" data-overview="${overview}" data-poster="${poster}" data-trailer="${youtubeLink}" data-title="${title}">Add to Favorite</div>`;
           searchResultsHTML +=
-            '<div class="col-sm-4 btn btn-primary">Git Ticket' + "</div>";
+            '<div class="col-sm-5 btn btn-primary" ><a href="' +
+            "/nowplaying" +
+            '">More Movies</a>' +
+            "</div><br>";
 
           searchResultsHTML += "</div>"; //close movieDetails
           searchResultsHTML += "</div>"; //close modal-dialog
