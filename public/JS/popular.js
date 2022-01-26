@@ -70,12 +70,18 @@ $(document).ready(function () {
             i +
             '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">';
           popularHTML += '<div class="modal-dialog" role="document">';
+          popularHTML +=
+            '<div class="alert alert-success favorite-added" role="alert">Movie added to favorites!</div>';
+          popularHTML +=
+            '<div class="alert alert-danger must-login" role="alert">You must be logged in to use this feature!</div>';
+          popularHTML +=
+            '<div class="alert alert-danger already-added" role="alert">You have already added this movie to favorites!</div>';
           popularHTML += '<div class="modal-content col-sm-12">';
           popularHTML += '<div class="col-sm-6 moviePosterInModal">';
           popularHTML +=
             '<a href="' +
             youtubeLink +
-            '" target="_blank"><img src="' +
+            '" target="_blank"><img class="col-xs-12" src="' +
             poster +
             '"></a>';
           popularHTML += "</div><br>"; //close trailerLink
@@ -108,6 +114,9 @@ $(document).ready(function () {
           //Without this line, there is nowhere for the posters and overviews to display so it doesn't show up
           $("#movieGenreLabel").html("Popular");
           //h1 will change depending on what is clicked. Will display "Now Playing" in this case.
+          $(".already-added").hide();
+          $(".favorite-added").hide();
+          $(".must-login").hide();
         });
       }
     });
@@ -159,12 +168,18 @@ $(document).ready(function () {
             i +
             '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">';
           genreHTML += '<div class="modal-dialog" role="document">';
+          genreHTML +=
+            '<div class="alert alert-success favorite-added" role="alert">Movie added to favorites!</div>';
+          genreHTML +=
+            '<div class="alert alert-danger must-login" role="alert">You must be logged in to use this feature!</div>';
+          genreHTML +=
+            '<div class="alert alert-danger already-added" role="alert">You have already added this movie to favorites!</div>';
           genreHTML += '<div class="modal-content col-sm-12 col-lg-12">';
           genreHTML += '<div class="col-sm-6 moviePosterInModal">';
           genreHTML +=
             '<a href="' +
             youtubeLink +
-            '" target="_blank"><img src="' +
+            '" target="_blank"><img class="col-xs-12" src="' +
             poster +
             '"></a>';
           genreHTML += "</div><br>"; //close trailerLink
@@ -195,6 +210,9 @@ $(document).ready(function () {
           //Without this line, there is nowhere for the posters and overviews to display so it doesn't show up
           // $('#movieGenreLabel').html("Now Playing");
           //h1 will change depending on what is clicked. Will display "Now Playing" in this case.
+          $(".already-added").hide();
+          $(".favorite-added").hide();
+          $(".must-login").hide();
         });
       }
     });
@@ -350,12 +368,18 @@ $(document).ready(function () {
             '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">';
           searchResultsHTML += '<div class="modal-dialog" role="document">';
           searchResultsHTML +=
+            '<div class="alert alert-success favorite-added" role="alert">Movie added to favorites!</div>';
+          searchResultsHTML +=
+            '<div class="alert alert-danger must-login" role="alert">You must be logged in to use this feature!</div>';
+          searchResultsHTML +=
+            '<div class="alert alert-danger already-added" role="alert">You have already added this movie to favorites!</div>';
+          searchResultsHTML +=
             '<div class="modal-content col-sm-12 col-lg-12">';
           searchResultsHTML += '<div class="col-sm-6 moviePosterInModal">';
           searchResultsHTML +=
             '<a href="' +
             youtubeLink +
-            '" target="_blank"><img src="' +
+            '" target="_blank"><img class="col-xs-12" src="' +
             poster +
             '"></a>';
           searchResultsHTML += "</div><br>"; //close trailerLink
@@ -386,6 +410,10 @@ $(document).ready(function () {
           $("#movie-grid").append(searchResultsHTML);
           //Label will be whatever user input was
           $("#movieGenreLabel").html(searchTerm);
+
+          $(".already-added").hide();
+          $(".favorite-added").hide();
+          $(".must-login").hide();
         });
       }
     });
@@ -409,11 +437,16 @@ $(document).ready(function () {
       },
     });
     if (response.status === 200) {
-      alert("added to favorites!");
+      $(".favorite-added").show();
     } else if (response.status === 403) {
-      alert("movie already added to favorites!");
+      $(".already-added").show();
     } else {
-      alert("Please login to use this feature.");
+      $(".must-login").show();
     }
+    setTimeout(() => {
+      $(".favorite-added").hide();
+      $(".must-login").hide();
+      $(".already-added").hide();
+    }, 1700);
   });
 });
