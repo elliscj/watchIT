@@ -52,7 +52,7 @@ pre {
 } */
 
 #review {
-  font-size: 1.7em;
+  font-size: 1.5em;
   text-align: center;
   padding: 24px 0;
   /* position: relative; */
@@ -114,7 +114,7 @@ pre {
 
 /* Idle State of the stars */
 .rating-stars ul > li.star > i.fa {
-  font-size: 2.5em; /* Change the size of the stars */
+  font-size: 1.2em; /* Change the size of the stars */
   color: #ccc; /* Color on idle state */
 }
 

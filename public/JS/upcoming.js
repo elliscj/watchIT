@@ -54,7 +54,8 @@ $(document).ready(function () {
 
           var upcomingHTML = "";
           // added in i to upcomingHTML. Without it, only the details for the first movie in the results display in the modal no matter which movie poster you click on.
-          upcomingHTML += '<div class="col-sm-6 col-lg-3 col-md-3 eachMovie">';
+          upcomingHTML +=
+            '<div class="col-xs-6 col-sm-6 col-lg-3 col-md-3 eachMovie">';
           upcomingHTML +=
             '<button type="button" class="btnModal" data-toggle="modal" data-target="#exampleModal' +
             i +
@@ -92,7 +93,11 @@ $(document).ready(function () {
           upcomingHTML +=
             '<div class="rating">Rating: ' + voteAverage + "/10</div><br>";
           upcomingHTML += `<div class="col-sm-5 btn btn-primary add-to-favorites" data-overview="${overview}" data-poster="${poster}" data-trailer="${youtubeLink}" data-title="${title}">Add to Favorite</div>`;
-
+          upcomingHTML +=
+            '<div class="col-sm-5 btn btn-primary" ><a href="' +
+            "/upcoming" +
+            '">More Movies</a>' +
+            "</div><br>";
           upcomingHTML += "</div>"; //close movieDetails
           upcomingHTML += "</div>"; //close modal-content
           upcomingHTML += "</div>"; //close modal-dialog
@@ -138,7 +143,8 @@ $(document).ready(function () {
           var youtubeKey = movieKey.results[0].key;
           var youtubeLink = "https://www.youtube.com/watch?v=" + youtubeKey;
           var genreHTML = "";
-          genreHTML += '<div class="col-sm-6 col-md-3 col-lg-3 eachMovie">';
+          genreHTML +=
+            '<div class="col-xs-6 col-sm-6 col-lg-3 col-md-3 eachMovie">';
           genreHTML +=
             '<button type="button" class="btnModal" data-toggle="modal" data-target="#exampleModal' +
             i +
@@ -175,7 +181,11 @@ $(document).ready(function () {
           genreHTML +=
             '<div class="rating">Rating: ' + voteAverage + "/10</div><br>";
           genreHTML += `<div class="col-sm-5 btn btn-primary add-to-favorites" data-overview="${overview}" data-poster="${poster}" data-trailer="${youtubeLink}" data-title="${title}">Add to Favorite</div>`;
-
+          genreHTML +=
+            '<div class="col-sm-5 btn btn-primary" ><a href="' +
+            "/nowplaying" +
+            '">More Movies</a>' +
+            "</div><br>";
           genreHTML += "</div>"; //close movieDetails
           genreHTML += "</div>"; //close modal-content
           genreHTML += "</div>"; //close modal-dialog
@@ -324,7 +334,7 @@ $(document).ready(function () {
           var youtubeLink = "https://www.youtube.com/watch?v=" + youtubeKey;
           var searchResultsHTML = "";
           searchResultsHTML +=
-            '<div class="col-sm-6 col-md-3 col-lg-3 eachMovie">';
+            '<div class="col-xs-6 col-sm-6 col-lg-3 col-md-3 eachMovie">';
           searchResultsHTML +=
             '<button type="button" class="btnModal" data-toggle="modal" data-target="#exampleModal' +
             i +
@@ -363,7 +373,11 @@ $(document).ready(function () {
           searchResultsHTML +=
             '<div class="rating">Rating: ' + voteAverage + "/10</div><br>";
           searchResultsHTML += `<div class="col-sm-5 btn btn-primary add-to-favorites" data-overview="${overview}" data-poster="${poster}" data-trailer="${youtubeLink}" data-title="${title}">Add to Favorite</div>`;
-
+          searchResultsHTML +=
+            '<div class="col-sm-5 btn btn-primary" ><a href="' +
+            "/nowplaying" +
+            '">More Movies</a>' +
+            "</div><br>";
           searchResultsHTML += "</div>"; //close movieDetails
           searchResultsHTML += "</div>"; //close modal-dialog
           searchResultsHTML += "</div>"; //close modal
