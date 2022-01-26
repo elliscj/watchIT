@@ -382,10 +382,7 @@ $(document).ready(function () {
             '<div class="rating">Rating: ' + voteAverage + "/10</div><br>";
           searchResultsHTML += `<div class="col-sm-5 btn btn-primary add-to-favorites" data-overview="${overview}" data-poster="${poster}" data-trailer="${youtubeLink}" data-title="${title}">Add to Favorite</div>`;
           searchResultsHTML +=
-            '<div class="col-sm-5 btn btn-primary" ><a href="' +
-            "/nowplaying" +
-            '">More Movies</a>' +
-            "</div><br>";
+            '<div class="col-sm-4 btn btn-primary">Git Ticket' + "</div>";
 
           searchResultsHTML += "</div>"; //close movieDetails
           searchResultsHTML += "</div>"; //close modal-dialog
